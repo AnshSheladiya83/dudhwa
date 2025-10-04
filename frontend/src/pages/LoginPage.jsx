@@ -28,8 +28,8 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    identifier: "ansh@gmail.com", // phone or email
-    password: "12345678",
+    identifier: "", // phone or email
+    password: "",
   });
 
   const handleChange = (e) => {

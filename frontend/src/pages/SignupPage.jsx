@@ -28,12 +28,12 @@ function SignupPage() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    firstName: "AAA",
-    lastName: "AAA",
-    email: "aaa@gmail.com",
-    phone: "4543452354",
-    password: "12345678",
-    confirmPassword: "12345678"
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: ""
   });
 
   const handleChange = (e) => {

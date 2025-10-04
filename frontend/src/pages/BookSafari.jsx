@@ -32,6 +32,41 @@ function BookSafari() {
       dateInputRef.current.showPicker?.() || dateInputRef.current.click();
     }
   };
+ // ✅ Razorpay Integration
+const openRazorpay = () => {
+  if (!window.Razorpay) {
+    alert("Razorpay SDK not loaded yet. Please check index.html script tag.");
+    return;
+  }
+
+  const options = {
+    key: "rzp_test_1234567890abcdef", // 🔴 replace with your Razorpay Key
+    amount: totalPayable * 100, // amount in paise
+    currency: "INR",
+    name: "Dudhwa Safari Booking",
+    description: "Safari Ticket Booking",
+    image: "https://your-logo-url.com/logo.png", // optional
+    handler: function (response) {
+      alert(`✅ Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+    },
+    prefill: {
+      name: passengers[0]?.name || "Guest",
+      email: "guest@example.com",
+      contact: "9999999999",
+    },
+    notes: {
+      safari_zone: zone,
+      date: format(date, "d-MMM-yyyy"),
+    },
+    theme: {
+      color: "#D15A09",
+    },
+  };
+
+  const rzp = new window.Razorpay(options);
+  rzp.open();
+};
+
 
   // ✅ STEP 1 Validation
   const validateStep1 = () => {
@@ -118,6 +153,9 @@ function BookSafari() {
     } else if (step === 2) {
       if (!validateStep2()) return;
       setStep(3);
+    }else if (step === 3) {
+      // ✅ Trigger Razorpay Payment
+      openRazorpay();
     } else {
       alert("✅ Booking Confirmed & Payment Done!");
     }
