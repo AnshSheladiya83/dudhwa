@@ -1,57 +1,118 @@
 // DudhwaTigerReservePage.jsx
 
 import React from 'react';
-import MediaSection from '../components/MediaSection'; 
-
-// Assuming the image is saved in 'assets'
 import bannerImage from '../../public/assets/image/banner-inner.jpg';
 import '../assets/css/about.css';
 
-// Component for the top banner (reused from previous implementation)
+// Top Banner Component
 const Banner = () => (
-  <div className="banner-container" style={{ backgroundImage: `url(${bannerImage})` }}>
-    <div className="banner-overlay"></div> {/* For the darkening effect */}
-    <div  className="container">
-        <div className="banner-content">
-            <h1 className="main-title">Privacy Policy</h1>
-            {/* <p className="subtitle">Reserve History & Other Information</p> */}
-        </div>
+  <div
+    className="banner-container"
+    style={{ backgroundImage: `url(${bannerImage})` }}
+  >
+    <div className="banner-overlay"></div>
+    <div className="container">
+      <div className="banner-content">
+        <h1 className="main-title">Privacy Policy</h1>
+      </div>
     </div>
   </div>
 );
 
-// Component for the main page content
+// Main Privacy Policy Page
 const DudhwaTigerReservePage = () => {
   return (
     <div className="page-wrapper">
       <Banner />
 
       <main className="content-area">
-
-        {/* 1. Overview Section */}
+        {/* Privacy Policy Section */}
         <section className="overview-section">
-            <div className="container">
-                <h2 className="section-title-large">Privacy Policy</h2>
-                <p className="overview-text">
-                    Dudhwa Tiger Reserve is one of the last remains of once vastly spread Himalayan Terai. Being a threatened habitat itself, the beings it harbour are mostly rare and uncommon to the fragmented and ever reducing areas of vast wilderness of the country.
-                    {/* ... rest of the first paragraph text ... */}
-                </p>
-                <p className="overview-text ">
-                    <span className="bold-text">Dudhwa Tiger Reserve</span> comprises the Dudhwa National Park, Katarniaghat Wildlife Sanctuary, and Kishanpur Wildlife Sanctuary. The tiger reserve includes fragments of the three large forests mentioned above in an area of 2201.77 sq km. Supported by Mohana River on the Northern boundary and shaarda river on south along with gerwa river in katarniaghat with a series of last remained oxbow lakes and marshy grasslands, dry riverine grasslands and dense moist deciduous  sal woodlands dudhwa becomes a biodiversity hotspot for flora and fauna each interconnected under food chains and food webs of different niches. The challenging landscape makes most of the parts of DTR difficult to access even on foot during the monsoons. A rainbow of colours are to be found as butterflies, insects, flowers embed in dark green hues of woodland and clear sky.
-                    {/* ... rest of the second paragraph text ... */}
-                </p>
-            {/* Note: The yellow swirl graphic would be added via CSS on the .content-area or a dedicated element */}
-            </div>
-          
-        </section>
+          <div className="container">
+            <h2 className="section-title-large">Privacy Policy</h2>
+            <p className="overview-text">
+              <strong>Effective Date:</strong> 01 October 2025
+            </p>
 
-        
-        
-       
+            <p className="overview-text">
+              At <strong>Dudhwa Tiger Conservation Foundation (DTCF)</strong>,
+              your privacy and data security are of utmost importance. This
+              policy explains how we collect, use, and safeguard your
+              information when you interact with our website:{' '}
+              <a
+                href="https://dudhwatigerreserve.in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://dudhwatigerreserve.in
+              </a>
+              .
+            </p>
+
+            <h3>Information We Collect</h3>
+            <ul className="overview-text">
+              <li>
+                <strong>Personal Details:</strong> Name, phone number, email
+                address, and postal address voluntarily provided through forms
+                or donations.
+              </li>
+              <li>
+                <strong>Payment Information:</strong> Processed securely by
+                Razorpay Payments Pvt. Ltd.; DTCF does not store or access your
+                card/banking details.
+              </li>
+              <li>
+                <strong>Technical Data:</strong> IP address, browser type, and
+                basic analytics data to enhance site performance.
+              </li>
+            </ul>
+
+            <h3>Use of Information</h3>
+            <ul className="overview-text">
+              <li>To process donations and issue digital receipts.</li>
+              <li>
+                To communicate updates, event invites, or progress reports.
+              </li>
+              <li>
+                To comply with government reporting and audit requirements.
+              </li>
+              <li>
+                To improve our outreach and conservation engagement.
+              </li>
+            </ul>
+
+            <h3>Data Security</h3>
+            <p className="overview-text">
+              Our site uses SSL encryption for all online transactions and
+              forms. Personal data is accessible only to authorized officials
+              and is never sold or shared with third parties. DTCF adheres to
+              the <strong>Information Technology Act, 2000 (India)</strong> and
+              its associated data protection provisions.
+            </p>
+
+            <h3>Cookies</h3>
+            <p className="overview-text">
+              This website uses cookies for analytics and session management.
+              You can disable cookies in your browser settings if preferred.
+            </p>
+
+            <h3>Third-Party Links</h3>
+            <p className="overview-text">
+              External links are provided for reference; DTCF is not responsible
+              for their content or privacy practices.
+            </p>
+
+            <h3>Contact</h3>
+            <p className="overview-text">
+              ✉️ <a href="mailto:dudhwanp.palia@gmail.com">dudhwanp.palia@gmail.com</a>
+              <br />
+              📞 +91 92359 09113
+            </p>
+          </div>
+        </section>
       </main>
     </div>
   );
 };
-
 
 export default DudhwaTigerReservePage;

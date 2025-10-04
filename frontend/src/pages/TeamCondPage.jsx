@@ -1,57 +1,124 @@
 // DudhwaTigerReservePage.jsx
 
-import React from 'react';
-import MediaSection from '../components/MediaSection'; 
+import React from "react";
+import MediaSection from "../components/MediaSection";
 
 // Assuming the image is saved in 'assets'
-import bannerImage from '../../public/assets/image/banner-inner.jpg';
-import '../assets/css/about.css';
+import bannerImage from "../../public/assets/image/banner-inner.jpg";
+import "../assets/css/about.css";
 
-// Component for the top banner (reused from previous implementation)
+// Component for the top banner
 const Banner = () => (
-  <div className="banner-container" style={{ backgroundImage: `url(${bannerImage})` }}>
-    <div className="banner-overlay"></div> {/* For the darkening effect */}
-    <div  className="container">
-        <div className="banner-content">
-            <h1 className="main-title">Terms and Conditions</h1>
-            {/* <p className="subtitle">Reserve History & Other Information</p> */}
-        </div>
+  <div
+    className="banner-container"
+    style={{ backgroundImage: `url(${bannerImage})` }}
+  >
+    <div className="banner-overlay"></div>
+    <div className="container">
+      <div className="banner-content">
+        <h1 className="main-title">Terms and Conditions</h1>
+      </div>
     </div>
   </div>
 );
 
-// Component for the main page content
 const DudhwaTigerReservePage = () => {
   return (
     <div className="page-wrapper">
       <Banner />
 
       <main className="content-area">
-
-        {/* 1. Overview Section */}
+        {/* Overview Section */}
         <section className="overview-section">
-            <div className="container">
-                <h2 className="section-title-large">Terms and Conditions</h2>
-                <p className="overview-text">
-                    Dudhwa Tiger Reserve is one of the last remains of once vastly spread Himalayan Terai. Being a threatened habitat itself, the beings it harbour are mostly rare and uncommon to the fragmented and ever reducing areas of vast wilderness of the country.
-                    {/* ... rest of the first paragraph text ... */}
-                </p>
-                <p className="overview-text ">
-                    <span className="bold-text">Dudhwa Tiger Reserve</span> comprises the Dudhwa National Park, Katarniaghat Wildlife Sanctuary, and Kishanpur Wildlife Sanctuary. The tiger reserve includes fragments of the three large forests mentioned above in an area of 2201.77 sq km. Supported by Mohana River on the Northern boundary and shaarda river on south along with gerwa river in katarniaghat with a series of last remained oxbow lakes and marshy grasslands, dry riverine grasslands and dense moist deciduous  sal woodlands dudhwa becomes a biodiversity hotspot for flora and fauna each interconnected under food chains and food webs of different niches. The challenging landscape makes most of the parts of DTR difficult to access even on foot during the monsoons. A rainbow of colours are to be found as butterflies, insects, flowers embed in dark green hues of woodland and clear sky.
-                    {/* ... rest of the second paragraph text ... */}
-                </p>
-            {/* Note: The yellow swirl graphic would be added via CSS on the .content-area or a dedicated element */}
-            </div>
-          
-        </section>
+          <div className="container">
+            <h2 className="section-title-large">Terms and Conditions</h2>
+            <p className="overview-text">
+              <strong>Effective Date:</strong> 01 October 2025
+            </p>
+            <p className="overview-text">
+              Welcome to the official website of{" "}
+              <strong>Dudhwa Tiger Conservation Foundation (DTCF)</strong> —{" "}
+              <a
+                href="https://dudhwatigerreserve.in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://dudhwatigerreserve.in
+              </a>
+              . By using this site, you agree to comply with and be bound by the
+              following terms and conditions.
+            </p>
 
-        
-        
-       
+            <h3 className="section-title">General Terms</h3>
+            <ul className="overview-text">
+              <li>
+                This website is owned and managed by Dudhwa Tiger Conservation
+                Foundation, established under the Wildlife (Protection) Act,
+                1972 to support conservation and eco-development within Dudhwa
+                Tiger Reserve.
+              </li>
+              <li>
+                Users may access the site for educational, awareness, and
+                donation purposes only.
+              </li>
+              <li>
+                Unauthorized reproduction, alteration, or commercial use of any
+                site content (text, photos, videos, or data) is strictly
+                prohibited.
+              </li>
+            </ul>
+
+            <h3 className="section-title">Donations and Payments</h3>
+            <ul className="overview-text">
+              <li>
+                All online payments are voluntary contributions toward
+                conservation activities, awareness programs, and community
+                support.
+              </li>
+              <li>
+                Payments are processed securely through Razorpay Payments Pvt.
+                Ltd., following Indian data protection and transaction security
+                norms.
+              </li>
+              <li>
+                Once a payment or donation is confirmed, it becomes
+                non-refundable except in verified cases of duplication or
+                technical error.
+              </li>
+            </ul>
+
+            <h3 className="section-title">Liability and Disclaimer</h3>
+            <ul className="overview-text">
+              <li>
+                While we strive for accuracy, DTCF does not guarantee
+                completeness of information or uninterrupted access to this
+                website.
+              </li>
+              <li>
+                The Foundation will not be responsible for any loss, damage, or
+                liability arising from the use of this website or related
+                digital services.
+              </li>
+            </ul>
+
+            <h3 className="section-title">Legal Jurisdiction</h3>
+            <p className="overview-text">
+              These terms are governed by the laws of India. Any disputes are
+              subject to the jurisdiction of Lakhimpur Kheri District Courts,
+              Uttar Pradesh.
+            </p>
+
+            <h3 className="section-title">Contact</h3>
+            <p className="overview-text">
+              ✉️ <a href="mailto:dudhwanp.palia@gmail.com">dudhwanp.palia@gmail.com</a>
+              <br />
+              📞 +91 92359 09113
+            </p>
+          </div>
+        </section>
       </main>
     </div>
   );
 };
-
 
 export default DudhwaTigerReservePage;
