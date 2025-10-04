@@ -1,0 +1,66 @@
+/* Custom styles to match the look in the image */
+body {
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: Arial, sans-serif;
+}
+.container-custom {
+    max-width: 900px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-control-custom, .form-select-custom {
+    border-radius: 6px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+}
+
+/* Safari Option Card Styles */
+.safari-option {
+    display: block; /* Makes the label fill the column */
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+.safari-option.active {
+    border-color: #007bff; /* Blue border for active state */
+    background-color: #e9f5ff; /* Light blue background */
+}
+.safari-option .form-check-input {
+    /* Hides the default radio button */
+    display: none; 
+}
+.safari-icon {
+    margin-bottom: 5px;
+}
+
+/* Date Box Styles */
+.date-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: right; /* Changed to right to match the image layout */
+    border: 1px solid #ced4da;
+    cursor: pointer;
+    height: 100%; /* Make it fill the height of other inputs */
+    align-items: flex-end !important; /* Vertically align content to the bottom/center */
+    flex-direction: column; /* Stack date number and day */
+}
+
+/* Status Indicator Styles */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

@@ -1,0 +1,180 @@
+/* src/components/LoginPage.module.css */
+
+.loginPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  width: 100%;
+  position: relative; /* For the blob shape */
+  z-index: 1; /* Keep content above blob */
+}
+
+.loginCard {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden; /* Important for the image's rounded corner */
+  width: 800px; /* Adjust as needed */
+  max-width: 90%; /* Responsive up to a point */
+}
+
+.loginFormSection {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.inputGroup {
+  margin-bottom: 25px;
+}
+
+.inputLabel {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.phoneInputContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: #f9f9f9;
+}
+
+.phoneInputContainer:focus-within {
+  border-color: #007bff; /* Example focus color */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.phoneIcon {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #666; /* Adjust icon color */
+}
+
+.phoneNumberInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 5px 0;
+  background-color: transparent;
+  color: #333;
+}
+
+.phoneNumberInput::placeholder {
+  color: #aaa;
+}
+
+.continueButton {
+  width: 100%;
+  padding: 14px;
+  background-color: #e67d22; /* Orange button color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.continueButton:hover {
+  background-color: #d16b18; /* Darker orange on hover */
+}
+
+.signupText {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: 25px;
+}
+
+.signupLink {
+  color: #007bff; /* Blue link color */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signupLink:hover {
+  text-decoration: underline;
+}
+
+.imageSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Placeholder background if image isn't loaded */
+  position: relative;
+  overflow: hidden;
+}
+
+.peacockImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block; /* Remove extra space below image */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .loginCard {
+    flex-direction: column; /* Stack sections vertically */
+    width: 95%;
+  }
+
+  .imageSection {
+    height: 200px; /* Give image section a fixed height on small screens */
+  }
+
+  .loginFormSection {
+    padding: 30px;
+  }
+
+  .loginTitle {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .continueButton {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5rem;
+  background: #fff;
+}
+
+.inputIcon {
+  margin-right: 8px;
+}
+
+.textInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
