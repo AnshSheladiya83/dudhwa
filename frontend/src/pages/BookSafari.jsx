@@ -40,7 +40,7 @@ const openRazorpay = () => {
   }
 
   const options = {
-    key: "rzp_test_1234567890abcdef", // 🔴 replace with your Razorpay Key
+    key: "rzp_test_RPQ7YAm6RLNtFo", // 🔴 replace with your Razorpay Key
     amount: totalPayable * 100, // amount in paise
     currency: "INR",
     name: "Dudhwa Safari Booking",
