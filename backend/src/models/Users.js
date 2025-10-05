@@ -12,6 +12,7 @@ const UsersSchema = new mongoose.Schema({
     lastName: { type: String }, 
     isActive: { type: Boolean }, 
     isAdmin: { type: Boolean }, 
+    isHotel: { type: Boolean }, 
     role: { type: String }, 
     phone: { type: String }, 
     profile_image_url: { type: String }, 
