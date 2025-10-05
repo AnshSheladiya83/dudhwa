@@ -26,7 +26,42 @@ exports.createBooking = async (req, res) => {
       );
   }
 };
+exports.getAvailability = async (req, res) => {
+  try {
+    const { safari_date, time_slot } = req.query;
 
+    if (!safari_date || !time_slot) {
+      return res
+        .status(400)
+        .send(ResponseHelper.error(400, "safari_date and time_slot are required", req));
+    }
+
+    const remainingCount = await BookingsService.getRemainingTravellerCount(
+      safari_date,
+      time_slot
+    );
+
+    return res
+      .status(200)
+      .send(
+        ResponseHelper.success(200, MSG.FOUND_SUCCESS, {
+          safari_date,
+          time_slot,
+          remaining: remainingCount,
+        })
+      );
+  } catch (error) {
+    return res
+      .status(500)
+      .send(
+        ResponseHelper.error(
+          500,
+          error?.message || MSG.INTERNAL_SERVER_ERROR,
+          req
+        )
+      );
+  }
+};
 // ✅ Get Bookings (Paginated)
 exports.getBookings = async (req, res) => {
   try {

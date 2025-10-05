@@ -40,8 +40,8 @@ import ViewContact from "./screens/ViewContactUs";
           <Routes>
             <Route path="*" element={<PrivateRoute roles={["admin"]}><NotFoundPage /></PrivateRoute>} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<PrivateRoute roles={["admin"]}><Dashboard /></PrivateRoute>} />
-            <Route
+            {/* <Route path="/dashboard" element={<PrivateRoute roles={["admin"]}><Dashboard /></PrivateRoute>} /> */}
+            {/* <Route
             path="/edit-profile"
             element={
               <PrivateRoute roles={["admin"]}>
@@ -60,7 +60,7 @@ import ViewContact from "./screens/ViewContactUs";
             <Route path="/bookings" element={<PrivateRoute roles={["admin"]}><Bookings /></PrivateRoute>} />
 <Route path="/bookings/view-booking/:id" element={<PrivateRoute roles={["admin"]}><ViewBooking /></PrivateRoute>} />
  <Route path="/contactus" element={<PrivateRoute roles={["admin"]}><ContactUsPage /></PrivateRoute>} />
-  <Route path="/contactus/view/:id" element={<PrivateRoute roles={["admin"]}><ViewContact /></PrivateRoute>} />
+  <Route path="/contactus/view/:id" element={<PrivateRoute roles={["admin"]}><ViewContact /></PrivateRoute>} /> */}
           </Routes>
         </div>
       </div>

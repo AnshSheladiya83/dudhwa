@@ -9,6 +9,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 // ✅ Create Booking
 router.post("/", authMiddleware, BookingsController.createBooking);
+router.get("/availability", BookingsController.getAvailability);
 
 // ✅ Get All Bookings (Admin / User)
 router.get("/", authMiddleware, BookingsController.getBookings);
