@@ -1517,6 +1517,7 @@ span.radio-btn {
             transition: background-color 0.2s ease-in-out;
             /* padding: 10px 50px !important; */
             width: 180px;
+            text-align: left;
         }
         .btn-safari:hover {
             background-color: #4cae4c;
