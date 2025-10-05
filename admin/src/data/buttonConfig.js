@@ -11,4 +11,10 @@ export const buttonConfigs = [
       { type: "view", navigate: "/contactus/view/id" },
     ],
   },
+       {
+    route: "/users",
+    btns: [
+      { type: "view", navigate: "/users/view/id" },
+    ],
+  },
     ];

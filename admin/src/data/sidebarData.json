@@ -17,6 +17,11 @@
         "title": "Contact Us",
         "icon": "MdEmail", 
         "redirect": "/contactus"
+      },
+        {
+        "title": "Users",
+        "icon": "MdPeople", 
+        "redirect": "/users"
       }
     ]
   },

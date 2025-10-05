@@ -45,3 +45,26 @@ export const contactDataTitles = {
   numberOfPersons: "No of Persons", // display as No of Persons
   Action: "Action"
 };
+
+export const userTableHeadCols = [
+  "firstName",
+  "lastName",
+  "email",
+  "phone",
+  "role",
+  "status",
+  "createdAt",
+  "Action",
+];
+
+// Mapping for display titles
+export const userDataTitles = {
+  firstName: "First Name",
+  lastName: "Last Name",
+  email: "Email",
+  phone: "Phone Number",
+  role: "Role",
+  status: "Status",
+  createdAt: "Created At",
+  Action: "Action",
+};
