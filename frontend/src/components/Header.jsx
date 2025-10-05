@@ -141,7 +141,7 @@ export default function Header() {
           <li>
             <button
               className="dropdown-item"
-              onClick={() => navigate("/profiles")}
+              onClick={() => navigate("/profile")}
             >
               My Profile
             </button>

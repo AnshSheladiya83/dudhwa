@@ -4,6 +4,9 @@ import React from 'react';
 // If you use an external CSS file for styling, make sure the classes (like .container) are defined.
 import bannerImage from '../../public/assets/image/banner-inner.jpg'; 
 import '../assets/css/about.css'; 
+import { contactUsCreate } from '../redux/services/contactus/contactusServices';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 // --- 0. Banner Component (Provided by user) ---
 const Banner = () => (
@@ -18,142 +21,166 @@ const Banner = () => (
   </div>
 );
 
-// --- 1. Contact Form Component ---
 const ContactForm = () => {
-  // Simple style object for the map container's wrapper to replicate the layout
-  const mapWrapperStyle = {
-    flex: '1 1 35%',
-    minWidth: '300px',
-    height: '100%',
-    position: 'relative',
-    overflow: 'hidden',
-    // The visual style of the map (the angular yellow element) would be achieved via CSS
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+const [formData, setFormData] = useState({
+  firstName: "John",
+  lastName: "Doe",
+  email: "john.doe@example.com",
+  contactNo: "+1234567890",
+  arrivalDate: "2025-10-10",
+  country: "India",
+  duration: "5 days",
+  noOfPerson: 2,
+  tourDescription: "I want a safari tour with guided trekking and photography sessions.",
+  verification: "QC8SQ",
+});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  // The main form area layout style
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+    const body = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      contactNo: formData.contactNo,
+      dateOfArrival: formData.arrivalDate || null, // matches backend dateOfArrival
+      country: formData.country,
+      durationOfStay: formData.duration,
+      numberOfPersons: formData.noOfPerson,
+      tourDescription: formData.tourDescription,
+      verificationCode: formData.verification,
+    };
+
+    await dispatch(contactUsCreate({ token, body })).unwrap();
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        contactNo: "",
+        arrivalDate: "",
+        country: "",
+        duration: "",
+        noOfPerson: "",
+        tourDescription: "",
+        verification: "",
+      });
+    } catch (err) {
+      console.error("Failed to submit contact form:", err);
+    }
+  };
+
+  // Styles
   const formLayout = {
-    display: 'flex',
-    gap: '40px',
-    padding: '40px 0',
-    maxWidth: '1200px',
-    margin: '0 auto',
+    display: "flex",
+    gap: "40px",
+    padding: "40px 0",
+    maxWidth: "1200px",
+    margin: "0 auto",
   };
-  
-  // Style for the input fields' row container (for first name, last name, etc.)
-  const inputRowStyle = {
-    display: 'flex',
-    gap: '20px',
-    marginBottom: '20px',
-  };
-
-  // Style for all text inputs/selects to take up half a row
+  const inputRowStyle = { display: "flex", gap: "20px", marginBottom: "20px" };
   const inputHalfStyle = {
-    flex: '1 1 50%',
-    padding: '12px 15px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    fontSize: '16px',
-    boxSizing: 'border-box',
+    flex: "1 1 50%",
+    padding: "12px 15px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    fontSize: "16px",
+    boxSizing: "border-box",
   };
-  
-  // Style for the textarea
-  const textareaStyle = {
-    ...inputHalfStyle,
-    width: '100%',
-    height: '120px',
-    resize: 'none',
-  };
-
-  // Style for the captcha image placeholder
+  const textareaStyle = { ...inputHalfStyle, width: "100%", height: "120px", resize: "none" };
   const captchaImageStyle = {
-    width: '100px',
-    height: '40px',
-    border: '1px dashed #ccc',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '14px',
-    letterSpacing: '3px',
-    backgroundColor: '#f9f9f9',
+    width: "100px",
+    height: "40px",
+    border: "1px dashed #ccc",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "14px",
+    letterSpacing: "3px",
+    backgroundColor: "#f9f9f9",
   };
-
-  // Style for the Submit button
   const submitButtonStyle = {
-    padding: '12px 30px',
-    backgroundColor: '#e96d2b', // Orange color from the image
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    marginTop: '20px',
+    padding: "12px 30px",
+    backgroundColor: "#e96d2b",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    fontSize: "16px",
+    cursor: "pointer",
+    marginTop: "20px",
   };
+  const mapWrapperStyle = { flex: "1 1 35%", minWidth: "300px", height: "100%", position: "relative", overflow: "hidden" };
 
   return (
     <div className="container" style={formLayout}>
       {/* Form Section */}
-      <div style={{ flex: '1 1 65%', minWidth: '400px' }}>
-        <h1 style={{ marginBottom: '40px', fontSize: '36px', fontWeight: 'bold' }}>Contact Us</h1>
-
-        <form>
-          {/* Row 1: First Name & Last Name */}
+      <div style={{ flex: "1 1 65%", minWidth: "400px" }}>
+        <h1 style={{ marginBottom: "40px", fontSize: "36px", fontWeight: "bold" }}>Contact Us</h1>
+        <form onSubmit={handleSubmit}>
+          {/* Row 1 */}
           <div style={inputRowStyle}>
-            <input type="text" placeholder="First Name" style={inputHalfStyle} required />
-            <input type="text" placeholder="Last Name" style={inputHalfStyle} required />
+            <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} style={inputHalfStyle} required />
+            <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} style={inputHalfStyle} required />
           </div>
-
-          {/* Row 2: Your E-mail & Contact No */}
+          {/* Row 2 */}
           <div style={inputRowStyle}>
-            <input type="email" placeholder="Your E-mail" style={inputHalfStyle} required />
-            <input type="tel" placeholder="Contact No" style={inputHalfStyle} required />
+            <input type="email" name="email" placeholder="Your E-mail" value={formData.email} onChange={handleChange} style={inputHalfStyle} required />
+            <input type="tel" name="contactNo" placeholder="Contact No" value={formData.contactNo} onChange={handleChange} style={inputHalfStyle} required />
           </div>
-
-          {/* Row 3: Date of Arrival & Country Name (Select) */}
+          {/* Row 3 */}
           <div style={inputRowStyle}>
-            <input type="text" placeholder="Date of Arrival" onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} style={inputHalfStyle} />
-            <select defaultValue="" style={inputHalfStyle}>
+            <input
+              type="text"
+              name="arrivalDate"
+              placeholder="Date of Arrival"
+              onFocus={(e) => (e.target.type = "date")}
+              onBlur={(e) => (e.target.type = "text")}
+              value={formData.arrivalDate}
+              onChange={handleChange}
+              style={inputHalfStyle}
+            />
+            <select name="country" value={formData.country} onChange={handleChange} style={inputHalfStyle} required>
               <option value="" disabled>Country Name</option>
               <option value="India">India</option>
               <option value="USA">USA</option>
-              {/* ... more countries ... */}
             </select>
           </div>
-
-          {/* Row 4: Duration of Stay & No of Person */}
+          {/* Row 4 */}
           <div style={inputRowStyle}>
-            <input type="text" placeholder="Duration of Stay" style={inputHalfStyle} />
-            <input type="number" placeholder="No of Person" style={inputHalfStyle} />
+            <input type="text" name="duration" placeholder="Duration of Stay" value={formData.duration} onChange={handleChange} style={inputHalfStyle} />
+            <input type="number" name="noOfPerson" placeholder="No of Person" value={formData.noOfPerson} onChange={handleChange} style={inputHalfStyle} />
           </div>
-
-          {/* Row 5: Tour Description (Textarea) */}
-          <div style={{ marginBottom: '20px' }}>
-            <textarea placeholder="Please Enter Your Tour Description and Requirements in Detail." style={textareaStyle}></textarea>
+          {/* Row 5 */}
+          <div style={{ marginBottom: "20px" }}>
+            <textarea name="tourDescription" placeholder="Please Enter Your Tour Description and Requirements in Detail." value={formData.tourDescription} onChange={handleChange} style={textareaStyle}></textarea>
           </div>
-          
-          {/* Row 6: Verification & Submit */}
+          {/* Row 6 */}
           <div style={inputRowStyle}>
-            <input type="text" placeholder="Enter Verification" style={{ flex: '1 1 50%', padding: '12px 15px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '16px', boxSizing: 'border-box' }} />
+            <input type="text" name="verification" placeholder="Enter Verification" value={formData.verification} onChange={handleChange} style={inputHalfStyle} />
             <div style={captchaImageStyle}>q C 8 s q</div>
           </div>
-
-          <button type="submit" style={submitButtonStyle}>
-            Submit
-          </button>
+          <button type="submit" style={submitButtonStyle}>Submit</button>
         </form>
       </div>
 
-      {/* Map Section (Placeholder) */}
+      {/* Map Section */}
       <div style={mapWrapperStyle}>
-        {/* Placeholder for the Google Map image/iframe */}
-        <iframe 
-            src="https://www.google.com/maps?q=Dudhwa%20National%20Park&output=embed" 
-            width="100%" 
-            height="500px" 
-            frameBorder="0" // JSX attribute name for 'frameborder'
-            style={{ border: 0 }} 
-            allowFullScreen 
-            aria-hidden="false" 
-            tabIndex="0"
+        <iframe
+          src="https://www.google.com/maps?q=Dudhwa%20National%20Park&output=embed"
+          width="100%"
+          height="500px"
+          frameBorder="0"
+          style={{ border: 0 }}
+          allowFullScreen
+          aria-hidden="false"
+          tabIndex="0"
         ></iframe>
       </div>
     </div>

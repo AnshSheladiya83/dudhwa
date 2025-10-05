@@ -1800,3 +1800,29 @@ div#navbarNav ul.navbar-nav.align-items-lg-center {
   line-height: 38px;
   text-align: right;
 }
+
+
+.safari-divider h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar li.active-tab,
+.sidebar li:hover {
+  background: #ff7f11;
+  color: #fff;
+  font-weight: 600;
+}

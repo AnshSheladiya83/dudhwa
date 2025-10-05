@@ -1,6 +1,7 @@
 const MODELS = {
   USERS: "Users",
-  QUESTIONS: "Questions",
+  BOOKINGS: "Bookings",
+  CONTACT_US: "ContactUs"
 };
 
 module.exports = { MODELS };

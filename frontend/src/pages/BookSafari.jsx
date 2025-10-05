@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { format, parseISO } from "date-fns";
+import Axios from "../redux/helper/axios";
 
 const safariZones = ["Zone A", "Zone B", "Zone C"];
 const maxPersons = 6;
@@ -33,21 +34,62 @@ function BookSafari() {
     }
   };
  // ✅ Razorpay Integration
-const openRazorpay = () => {
+const openRazorpay = async () => {
   if (!window.Razorpay) {
     alert("Razorpay SDK not loaded yet. Please check index.html script tag.");
     return;
   }
 
   const options = {
-    key: "rzp_test_RPQ7YAm6RLNtFo", // 🔴 replace with your Razorpay Key
+    key: "rzp_test_RPQ7YAm6RLNtFo",
     amount: totalPayable * 100, // amount in paise
     currency: "INR",
     name: "Dudhwa Safari Booking",
     description: "Safari Ticket Booking",
-    image: "https://your-logo-url.com/logo.png", // optional
-    handler: function (response) {
+    image: "https://your-logo-url.com/logo.png",
+    handler: async function (response) {
+
+      // ✅ Prepare booking payload
+const amount = passengers.length * 1850; // per person fee
+const tax = Math.round(amount * 0.18);
+const totalPayable = amount + tax;
+
+const bookingData = {
+  safari_zone: zone,
+  safari_date: date, // ISO format "2025-10-04" works
+  time_slot: timeSlot,
+  adults,
+  children,
+  passengers,
+  amount,
+  tax,
+  totalPayable,
+  razorpay_payment_id: "pay_RPgPLad52IgLj3", // optional
+};
+      try {
+        const token = localStorage.getItem("token");
+     const res = await Axios.post(
+  "/api/bookings",
+  bookingData,
+  {
+    headers: token ? { Authorization: `Bearer ${token}` } : undefined
+  }
+)  
+        if (res.data.success) {
       alert(`✅ Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+          // Optionally, reset state or redirect user
+          setStep(1);
+          setZone("");
+          setAdults(0);
+          setChildren(0);
+          setPassengers([]);
+        } else {
+          alert(`⚠️ Booking failed: ${res.data.message}`);
+        }
+      } catch (err) {
+        console.error(err);
+        alert(`⚠️ Booking API error: ${err?.response?.data?.message || err.message}`);
+      }
     },
     prefill: {
       name: passengers[0]?.name || "Guest",
@@ -66,7 +108,6 @@ const openRazorpay = () => {
   const rzp = new window.Razorpay(options);
   rzp.open();
 };
-
 
   // ✅ STEP 1 Validation
   const validateStep1 = () => {

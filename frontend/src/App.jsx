@@ -15,6 +15,7 @@ import TeamCondPage from "./pages/TeamCondPage.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import BookSafari from "./pages/BookSafari.jsx";
+import MyProfilePage from "./pages/MyProfile.jsx";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/cong" element={<CongPage />} />
           <Route path="/book-safari" element={<BookSafari />} />
+          <Route path="/profile" element={<MyProfilePage />} />
 
           <Route path="/terms-and-conditions" element={<TeamCondPage />} />
           <Route path="/privacy-policy" element={<PrivacypolicyPage />} />

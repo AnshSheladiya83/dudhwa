@@ -11,11 +11,14 @@ registerAppMiddleware(app);
 
 // Routes
 const UsersRoutes = require("./src/routes/UsersRoutes");
+const BookingsRoutes = require("./src/routes/BookingsRoutes.js");
+const ContactUsRoutes = require("./src/routes/ContactUsRoutes.js");
 const AuthRoutes = require("./src/routes/AuthRoutes");
 
 app.use("/api/users", UsersRoutes);
+app.use("/api/bookings", BookingsRoutes);
+app.use("/api/contactus", ContactUsRoutes);
 app.use("/api/auth", AuthRoutes);
-
 
 // Error & Promise Handlers
 process.on("uncaughtException", (err) => {
