@@ -40,11 +40,11 @@ export default function DudhwaZones() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">{zone.name}</h3>
                   
-                  <div className="hero__outline__cta">
+                  {/* <div className="hero__outline__cta">
                     <a href={`/safari/${zone.name.toLowerCase()}`} className="btn btn-outline-primary">
                         View Details
                     </a>
-                  </div>
+                  </div> */}
 
                 </div>
               ))}

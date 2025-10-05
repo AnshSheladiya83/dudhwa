@@ -22,7 +22,7 @@ export default function Hero() {
           </button>
         </div>
 
-        <div className="weather-card">
+        {/* <div className="weather-card">
           <i className="fas fa-sun weather-icon"></i>
           <div className="weather-details">
             <div className="temp"><i className="fas fa-temperature-high"></i> 31.42°C</div>
@@ -30,7 +30,7 @@ export default function Hero() {
             <div className="wind"><i className="fas fa-wind"></i> 1.02 m/s</div>
             <div><i className="fas fa-cloud"></i> Scattered clouds</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ const Banner = () => (
     <div className="banner-overlay"></div> 
     <div className="container"> 
       <div className="banner-content">
-        <h1 className="main-title">Reports</h1>
+        <h1 className="main-title">Contact Us</h1>
         {/* <p className="subtitle">Reserve History & Other Information</p> */}
       </div>
     </div>

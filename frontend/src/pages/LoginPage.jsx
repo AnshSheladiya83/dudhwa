@@ -84,8 +84,9 @@ function LoginPage() {
 
   return (
     <>
-      <Banner />
-      <div className={styles.loginPageContainer}>
+      {/* <Banner /> */}
+      <div className="login_flex">
+        <div className={styles.loginPageContainer}>
         <div className={styles.loginCard}>
           <div className={styles.loginFormSection}>
             <h2 className={styles.loginTitle}>Login to your Account</h2>
@@ -149,6 +150,7 @@ function LoginPage() {
             />
           </div>
         </div>
+      </div>
       </div>
     </>
   );

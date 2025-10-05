@@ -73,7 +73,7 @@ button:focus-visible {
 
 .hero-section {
     position: relative;
-    min-height: 90vh;
+    min-height: 84vh;
     display: flex;
     align-items: center;
     /* 📸 Crucial: Use background-image property */
@@ -89,7 +89,7 @@ button:focus-visible {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(0 0 9 / 40%);
+    /* background-color: rgb(0 0 9 / 40%); */
     opacity: 0.84;
     z-index: 2;
 }
@@ -100,7 +100,7 @@ button:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: flex-end; /* Aligns content and weather card near the bottom */
-    padding-top: 150px; 
+    padding-top: 50px; 
     padding-bottom: 50px;
     width: 100%;
     flex-direction: row; 
@@ -116,10 +116,10 @@ button:focus-visible {
             font-family: "Poppins", sans-serif;
         }
         .header-container {
-               background-color: #15131300;
+               /* background-color: #15131300; */
     border-bottom: 0;
-    position: absolute;
-    top: 0;
+    /* position: absolute;
+    top: 0; */
     z-index: 99;
         }
         .logo-text {
@@ -271,7 +271,7 @@ p.hero-description {
 }
 .map-se {
     text-align: center;
-    padding: 80px 0;
+    padding: 80px 0 0;
 }
 
 
@@ -483,6 +483,10 @@ section.big__five {
     width: 100%;
     background-color: #F6FAFF;
     padding: 80px 0;
+}
+
+.big__five .swiper-pagination{
+  display: none;
 }
 
 section.top__things {
@@ -855,11 +859,22 @@ footer img {
     WIDTH: 50% ! IMPORTANT;
 }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light.container-fluid {
+.header-container{
+  background: #FFF;
+}
+
+.navbar-nav .nav-link{
+  color: #171717;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* nav.navbar.navbar-expand-lg.navbar-light.bg-light.container-fluid {
     background: #ffffff26 !important;
     border-radius: 10px;
     margin-top: 10px;
-}
+} */
+
 li.nav-item a {
     font-size: 17px;
 }
@@ -876,3 +891,106 @@ li.nav-item a {
 section.media-section {
     padding: 80px 0;
 }
+
+.login_flex{
+  padding: 80px 0;
+}
+
+.login_flex input{  
+  background: #FFF;
+  color: #000;
+}
+
+.login_flex input:focus{
+  background: #FFF;
+}
+
+.regeister_flex{
+  padding: 80px 0;
+}
+
+.regeister_flex input{  
+  background: #FFF;
+  color: #000;
+}
+
+
+
+/* Media Query */
+
+@media (max-width: 768px) {
+
+  .wildlife-stats-panel{
+    display: none;
+  }
+  
+  .header-container .navbar-brand{
+    width: 65%;
+  }
+
+  .hero-description{
+    font-size: 1.5rem;
+  line-height: 2rem;
+  }
+
+  p.hero-description {
+  max-width: 80%;
+}
+
+.mys{
+  display: none;
+}
+
+section.pt-20.pb-5.relative.topthreecircle{
+  margin-top: 20px;  
+}
+
+.box-top .flex.justify-center.items-center.space-x-16 .flex.flex-col.items-center.group{
+  max-width: 100%;
+}
+
+.box-top .rounded-full{
+  padding: 0;
+}
+
+.box-top .rounded-full img{
+  padding: 10px;
+}
+
+
+.location .tab{
+  font-size: 14px;
+    padding: 5px 16px;
+}
+
+.location .card{
+  width: 100%; 
+  max-width: 100%;
+  display: inline-table;
+}
+
+.map-inn{
+  max-width: 100%;
+}
+
+.banner-container .banner-content{
+  top: 0;
+}
+
+.contact-page .container form input{
+  width: 100%;
+}
+
+.safari-divider{
+  display: block;
+}
+
+.booking-form .form-row{
+  display: block;
+}
+
+.booking-form .form-row .form-group{
+  margin-bottom: 15px;
+}
+
+} 

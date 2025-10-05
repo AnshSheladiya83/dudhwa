@@ -100,8 +100,9 @@ const validateForm = () => {
 
   return (
     <>
-      <Banner />
-      <div className={styles.loginPageContainer}>
+      {/* <Banner /> */}
+      <div className="regeister_flex">
+        <div className={styles.loginPageContainer}>
         <div className={styles.loginCard}>
           <div className={styles.loginFormSection}>
             <h2 className={styles.loginTitle}>Create Your Account</h2>
@@ -232,14 +233,15 @@ const validateForm = () => {
             </p>
           </div>
 
-          <div className={styles.imageSection}>
+          {/* <div className={styles.imageSection}>
             <img
               src={peacockImage}
               alt="Peacock"
               className={styles.peacockImage}
             />
-          </div>
+          </div> */}
         </div>
+      </div>
       </div>
     </>
   );

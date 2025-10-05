@@ -179,7 +179,7 @@ const ReportsPage = () => {
       {/* 2. Page Content Section */}
       <section style={pageSectionStyle}>
         <div className="container"> {/* Use the standard 'container' class for page width/centering */}
-          <h1 style={headingStyle}>Project Reports and Documentation</h1>
+          <h2 style={headingStyle}>Project Reports and Documentation</h2>
           
           {/* 3. Report Table */}
           <Report />

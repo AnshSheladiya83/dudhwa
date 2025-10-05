@@ -39,7 +39,7 @@ const bigFiveData = [
 
 export default function BigFiveSection() {
   return (
-    <section className="big__five">
+    <section className="big__five big__five--slider">
       <div className="container">
         {/* Title and Description */}
         <div className="row text-center mb-5">
@@ -62,12 +62,12 @@ export default function BigFiveSection() {
           spaceBetween={20}
           loop={true}
           navigation
-          pagination={{ clickable: true }}
+          pagination={{ clickable: true }}          
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             0: { slidesPerView: 1 }, // mobile
-            768: { slidesPerView: 2 }, // tablet
-            1200: { slidesPerView: 3 }, // desktop
+            768: { slidesPerView: 3 }, // tablet
+            1200: { slidesPerView: 4 }, // desktop
           }}
         >
           {bigFiveData.map((animal, index) => (
