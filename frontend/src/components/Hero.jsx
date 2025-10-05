@@ -1,37 +1,60 @@
 // src/components/Hero.jsx
-
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+const slides = [
+  { img: '/assets/image/banner1.jpg', text: 'Untamed Wilderness, Living Legacy of the Himalayan Terai.' },
+  { img: '/assets/image/banner.jpg', text: 'Experience the Beauty of Dudhwa National Park.' },
+  { img: '/assets/image/banner3.jpg', text: 'Discover the Safari Adventure Like Never Before.' },
+];
 
 export default function Hero() {
   return (
     <section className="hero-section">
-      {/* 💡 The background image is applied via the 'hero-section' CSS class */}
-      
-      <div className="container">
-        <div className="hero-content">
-          {/* <h1 className="hero-title">Dudhwa </h1> */}
-          <p className="hero-description">Untamed Wilderness, Living Legacy of the Himalayan Terai.</p>
-          
-          <button 
-            className="btn btn-safari px-4 py-2" 
-            data-value="Jungle safari" 
-            data-bs-toggle="modal" 
-            data-bs-target="#staticBackdrop"
-          >
-            Book My Safari
-          </button>
-        </div>
-
-        {/* <div className="weather-card">
-          <i className="fas fa-sun weather-icon"></i>
-          <div className="weather-details">
-            <div className="temp"><i className="fas fa-temperature-high"></i> 31.42°C</div>
-            <div className="humidity"><i className="fas fa-tint"></i> 68%</div>
-            <div className="wind"><i className="fas fa-wind"></i> 1.02 m/s</div>
-            <div><i className="fas fa-cloud"></i> Scattered clouds</div>
-          </div>
-        </div> */}
-      </div>
+ <Swiper
+  modules={[Navigation, Pagination, Autoplay]}
+  spaceBetween={30}
+  slidesPerView={1}
+  navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+  pagination={{ clickable: true }}
+  autoplay={{ delay: 5000, disableOnInteraction: false }}
+  loop
+>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="hero-slide"
+              style={{
+                backgroundImage: `url(${slide.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                height: '800px', // adjust height as needed
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div className="hero-content text-center text-white">
+                <p className="hero-description">{slide.text}</p>
+                <button
+                  className="btn btn-safari px-4 py-2"
+                  data-value="Jungle safari"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  Book My Safari
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }
