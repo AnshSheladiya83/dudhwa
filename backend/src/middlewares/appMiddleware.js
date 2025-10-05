@@ -19,7 +19,11 @@ function registerAppMiddleware(app) {
   // CORS
 app.use(
   cors({
-    origin: "*",
+   origin: [
+      "http://13.62.52.161:5173",
+      "http://localhost:5173",
+      "https://dudhwa-admin.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
