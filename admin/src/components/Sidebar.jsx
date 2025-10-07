@@ -14,7 +14,7 @@ import React, { useState } from "react";
     import { BsTags } from "react-icons/bs";
     import { TbBoxMultiple } from "react-icons/tb";
     import { FaRegBell } from "react-icons/fa";
-    import { MdEmail } from "react-icons/md";
+    import { MdEmail, MdEventBusy } from "react-icons/md";
     import { LuUser } from "react-icons/lu";
     import { PiUsersThree } from "react-icons/pi";
     import { LuUsers } from "react-icons/lu";
@@ -52,6 +52,8 @@ import React, { useState } from "react";
       FaArrowTrendUp: FaArrowTrendUp,
       TbReportAnalytics: TbReportAnalytics,
       PiTrayArrowUpLight: PiTrayArrowUpLight,
+      IoSettingsOutline: IoSettingsOutline,
+      MdEventBusy: MdEventBusy,
       IoSettingsOutline: IoSettingsOutline,
     };
     

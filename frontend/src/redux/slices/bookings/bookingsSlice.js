@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   bookingGetAll,
   bookingGetById,
-  bookingCreate
+  bookingCreate,
+  bookingGetAvailability, // <-- added here
 } from "../../services/bookings/bookingsServices";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   data: null,
   booking: null,
   bookings: [],
+  availability: null, 
   error: null,
 };
 
@@ -25,7 +27,6 @@ const bookingSlice = createSlice({
     builder.addCase(bookingGetAll.fulfilled, (state, action) => {
       state.loader = false;
       state.error = null;
-      console.log(action.payload)
       state.bookings = action.payload.data;
     });
     builder.addCase(bookingGetAll.rejected, (state, action) => {
@@ -57,6 +58,20 @@ const bookingSlice = createSlice({
       state.booking = action.payload.data;
     });
     builder.addCase(bookingCreate.rejected, (state, action) => {
+      state.loader = false;
+      state.error = action.payload ?? "Something went wrong!";
+    });
+
+    // bookingGetAvailability
+    builder.addCase(bookingGetAvailability.pending, (state) => {
+      state.loader = true;
+    });
+    builder.addCase(bookingGetAvailability.fulfilled, (state, action) => {
+      state.loader = false;
+      state.error = null;
+      state.availability = action.payload.data; // store availability data
+    });
+    builder.addCase(bookingGetAvailability.rejected, (state, action) => {
       state.loader = false;
       state.error = action.payload ?? "Something went wrong!";
     });

@@ -34,8 +34,20 @@ exports.getAll = async (req, res) => {
       sortDirection,
     });
 
+    // Add user_type based on isAdmin / isHotel
+    const usersWithType = users.map(user => {
+      let user_type = "User"; // default
+      if (user.isAdmin) user_type = "Admin";
+      else if (user.isHotel) user_type = "Hotel";
+
+      return {
+        ...user.toObject ? user.toObject() : user, // in case it's a Mongoose doc
+        user_type,
+      };
+    });
+
     const paginationObject = await getPaginationObject(
-      users,
+      usersWithType,
       pageNumber,
       pageSize,
       usersCounts
@@ -47,18 +59,23 @@ exports.getAll = async (req, res) => {
         ResponseHelper.success(
           200,
           MSG.FOUND_SUCCESS,
-          users,
+          usersWithType,
           paginationObject
         )
       );
   } catch (error) {
-     return res
+    return res
       .status(500)
       .send(
-        ResponseHelper.error(500, error?.message || MSG.INTERNAL_SERVER_ERROR,req)
+        ResponseHelper.error(
+          500,
+          error?.message || MSG.INTERNAL_SERVER_ERROR,
+          req
+        )
       );
   }
 };
+
 
 exports.getById = async (req, res) => {
   try {

@@ -77,7 +77,7 @@ function LoginPage() {
     const resultAction = await dispatch(authLogin({ body }));
     if (resultAction?.payload?.success) {
       localStorage.setItem("token", resultAction?.payload?.data?.token);
-            navigate("/");
+            navigate("/book-safari");
 
     } 
   };

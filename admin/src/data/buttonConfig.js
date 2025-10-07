@@ -14,7 +14,6 @@ export const buttonConfigs = [
        {
     route: "/users",
     btns: [
-      { type: "view", navigate: "/users/view/id" },
     ],
   },
     ];

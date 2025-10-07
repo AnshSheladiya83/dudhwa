@@ -25,16 +25,16 @@ const ContactForm = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
 const [formData, setFormData] = useState({
-  firstName: "John",
-  lastName: "Doe",
-  email: "john.doe@example.com",
-  contactNo: "+1234567890",
-  arrivalDate: "2025-10-10",
-  country: "India",
-  duration: "5 days",
-  noOfPerson: 2,
-  tourDescription: "I want a safari tour with guided trekking and photography sessions.",
-  verification: "QC8SQ",
+  firstName: "",
+  lastName: "",
+  email: "",
+  contactNo: "",
+  arrivalDate: "",
+  country: "",
+  duration: "",
+  noOfPerson: 0,
+  tourDescription: "",
+  verification: "",
 });
 
   const handleChange = (e) => {

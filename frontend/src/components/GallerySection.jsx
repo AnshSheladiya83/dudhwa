@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 // Array of image sources and alt text
 const galleryImages = [
-  { src: "../../public/assets/image/Rectangle 65.jpg", alt: "Swamp deer in the tall grass of Dudhwa" },
-  { src: "../../public/assets/image/Rectangle 67.jpg", alt: "Dense forest canopy in Dudhwa Tiger Reserve" },
-  { src: "../../public/assets/image/Rectangle 68.jpg", alt: "A tiger resting near a water body" },
-  { src: "../../public/assets/image/Rectangle 69.jpg", alt: "Morning mist over a river in the park" },
-  { src: "../../public/assets/image/Rectangle 70.jpg", alt: "A close-up of a rhinoceros grazing" },
-  { src: "../../public/assets/image/Rectangle 71.jpg", alt: "A bird flying over a jungle stream" },
-  { src: "../../public/assets/image/Rectangle 72.jpg", alt: "Jeep safari on a dusty track" },
-  { src: "../../public/assets/image/Rectangle 66.jpg", alt: "A wide shot of grasslands at sunset" },
+  { src: "/assets/image/Rectangle 65.jpg", alt: "Swamp deer in the tall grass of Dudhwa" },
+  { src: "/assets/image/Rectangle 67.jpg", alt: "Dense forest canopy in Dudhwa Tiger Reserve" },
+  { src: "/assets/image/Rectangle 68.jpg", alt: "A tiger resting near a water body" },
+  { src: "/assets/image/Rectangle 69.jpg", alt: "Morning mist over a river in the park" },
+  { src: "/assets/image/Rectangle 70.jpg", alt: "A close-up of a rhinoceros grazing" },
+  { src: "/assets/image/Rectangle 71.jpg", alt: "A bird flying over a jungle stream" },
+  { src: "/assets/image/Rectangle 72.jpg", alt: "Jeep safari on a dusty track" },
+  { src: "/assets/image/Rectangle 66.jpg", alt: "A wide shot of grasslands at sunset" },
 ];
 
 export default function GallerySection() {

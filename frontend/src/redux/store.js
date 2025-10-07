@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import authReducer from "./slices/auth/authSlice";
 import bookingReducer from "./slices/bookings/bookingsSlice";
+import configReducer from "./slices/configs/configSlice";
 
 const persistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   bookings: bookingReducer,
+  config:configReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

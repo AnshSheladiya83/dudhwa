@@ -51,10 +51,7 @@ export const userTableHeadCols = [
   "lastName",
   "email",
   "phone",
-  "role",
-  "status",
-  "createdAt",
-  "Action",
+  "user_type",
 ];
 
 // Mapping for display titles
@@ -63,8 +60,14 @@ export const userDataTitles = {
   lastName: "Last Name",
   email: "Email",
   phone: "Phone Number",
-  role: "Role",
-  status: "Status",
-  createdAt: "Created At",
-  Action: "Action",
+  user_type: "User Type",
+};
+export const offDatesTableHeadCols = [
+  "index",
+  "date",
+];
+
+export const offDatesDataTitles = {
+  index: "#",
+  date: "Off-Date",
 };

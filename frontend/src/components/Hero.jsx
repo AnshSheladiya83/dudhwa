@@ -9,9 +9,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const slides = [
-  { img: '/assets/image/banner1.jpg', text: 'Untamed Wilderness, Living Legacy of the Himalayan Terai.' },
-  { img: '/assets/image/banner.jpg', text: 'Experience the Beauty of Dudhwa National Park.' },
-  { img: '/assets/image/banner3.jpg', text: 'Discover the Safari Adventure Like Never Before.' },
+  { img: '/assets/image/banner.jpg', text: 'Untamed Wilderness, Living Legacy of the Himalayan Terai.' },
+ 
 ];
 
 export default function Hero() {
@@ -40,7 +39,7 @@ export default function Hero() {
                 justifyContent: 'center',
               }}
             >
-              <div className="hero-content text-center text-white">
+              <div className="hero-content  text-white">
                 <p className="hero-description">{slide.text}</p>
                 <button
                   className="btn btn-safari px-4 py-2"

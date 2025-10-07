@@ -9,12 +9,7 @@ const PassengerSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     gender: { type: String, enum: ["Male", "Female", "Other"], required: true },
-    idType: {
-      type: String,
-      enum: ["Aadhar", "Passport", "Voter ID", "Pan Card", "Driving Licence"],
-      required: true,
-    },
-    idNumber: { type: String, required: true },
+    nationality: { type: String, enum: ["Indian", "Foreigner"], required: true },
     age: { type: Number, required: true },
     type: { type: String, enum: ["Booker", "Adult", "Children"], required: true },
   },
@@ -33,6 +28,7 @@ const BookingSchema = new mongoose.Schema(
       enum: ["Zone A", "Zone B", "Zone C"],
       required: true,
     },
+    bookedCar: { type: String },
     safari_date: { type: Date, required: true },
     time_slot: { type: String, enum: ["morning", "evening"], required: true },
 

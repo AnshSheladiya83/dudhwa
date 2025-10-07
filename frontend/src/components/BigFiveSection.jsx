@@ -11,27 +11,27 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 const bigFiveData = [
   {
     name: "Tiger",
-    src: "../../public/assets/image/big-1.jpg",
+    src: "/assets/image/big-1.jpg",
     description: "The apex predator and icon of the reserve.",
   },
   {
     name: "Rhino",
-    src: "../../public/assets/image/big-2.jpg",
+    src: "/assets/image/big-2.jpg",
     description: "The symbol of Dudhwa's successful reintroduction program.",
   },
   {
     name: "Elephant",
-    src: "../../public/assets/image/big-3.jpg",
+    src: "/assets/image/big-3.jpg",
     description: "The majestic Asian Elephant roaming the grasslands and forests.",
   },
   {
     name: "Leopard",
-    src: "../../public/assets/image/big-4.jpg",
+    src: "/assets/image/big-4.jpg",
     description: "The elusive and adaptable spotted big cat.",
   },
   {
     name: "Swamp Deer (Barasingha)",
-    src: "../../public/assets/image/big-5.jpg",
+    src: "/assets/image/big-5.jpg",
     description:
       "One of the world's largest populations of this unique deer species.",
   },

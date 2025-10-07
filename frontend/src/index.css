@@ -996,3 +996,92 @@ section.pt-20.pb-5.relative.topthreecircle{
 }
 
 } 
+div#navbarNav {
+    max-width: 80%;
+    width: 100% !important;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.container-fluid {
+    background: #ffffff26 !important;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.header-container {
+    background-color: #15131300;
+    border-bottom: 0;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+div#navbarNav ul.navbar-nav.align-items-lg-center .d-flex.align-items-center.justify-content-center.rounded-circle.bg-light {
+    background-color: #fff;
+}
+
+.box-top {
+    margin-top: -80px;
+}
+
+div#navbarNav ul.navbar-nav.align-items-lg-center .d-flex.align-items-center.justify-content-center.rounded-circle.bg-light {
+    background-color: #fff !important;
+}
+
+.swiper-button-prev {
+    background: #D15A09 !important;
+    position: absolute;
+    z-index: 11111111111;
+    border-radius: 50%;
+}
+
+.swiper-button-prev svg {
+    width: 12px;
+    fill: #fff !important;
+}
+
+.swiper-button-prev svg path {
+    color: #fff;
+}
+
+
+.swiper-button-next {
+    background: #D15A09 !important;
+    position: absolute;
+    z-index: 11111111111;
+    border-radius: 50%;
+}
+
+.swiper-button-next svg {
+    width: 12px;
+    fill: #fff !important;
+}
+
+.swiper-button-next svg path {
+    color: #fff;
+}
+.media-box {
+    position: relative;
+}
+
+.media-box a.media-play {
+    position: absolute;
+    z-index: 111;
+    left: 40%;
+    right: 50%;
+    top: 45%;
+}
+
+.media-box a.media-play i.fa-brands.fa-youtube {
+    color: red;
+    font-size: 70px;
+}
+
+ @media (max-width: 575px) {
+	 
+	 
+	 header.header-container.w-100.shadow-sm {
+    background-color: #fff !important;
+}
+h1.main-title {
+    font-size: 36px;
+    padding-top: 120px;
+}
+ }

@@ -3,7 +3,7 @@ import React from 'react';
     import TableRow from './TableRow';
     import notFoundImage from '../../assets/NoDataFound.png'; 
     
-    const Table = ({ headCols, data, dataTitles }) => {    
+    const Table = ({ headCols, data, dataTitles }) => {   
       return (
         <div className={`overflow-x-auto ${data.length > 0 ? "bg-white " : "flex center-both  bg-white/2"} rounded-t-[12px] md:mb-20 mb-5`} >
           {data.length > 0 ? (

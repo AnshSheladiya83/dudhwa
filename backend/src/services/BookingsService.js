@@ -82,44 +82,45 @@ class BookingsService {
   const bookings = await aggregate("bookings", pipeline);
   return bookings[0] || null;
 }
- async getRemainingTravellerCount(safari_date, time_slot) {
-    const MAX_TRAVELLERS = 40;
+async getRemainingTravellerCount(safari_date, time_slot) {
+  const MAX_TRAVELLERS = 40;
 
-    // Convert date to start and end of day
-    const date = new Date(safari_date);
-    const startOfDay = new Date(date.setHours(0, 0, 0, 0));
-    const endOfDay = new Date(date.setHours(23, 59, 59, 999));
+  // Normalize to UTC start/end of day
+  const date = new Date(safari_date);
+  const startOfDay = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0));
+  const endOfDay = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 23, 59, 59, 999));
 
-    const pipeline = [
-      {
-        $match: {
-          safari_date: { $gte: startOfDay, $lte: endOfDay },
-          time_slot: time_slot,
-          is_deleted: false,
-          payment_status: "success", // count only confirmed bookings
-        },
+  const pipeline = [
+    {
+      $match: {
+        safari_date: { $gte: startOfDay, $lte: endOfDay },
+        time_slot: time_slot,
+        is_deleted: false,
       },
-      {
-        $group: {
-          _id: null,
-          totalAdults: { $sum: "$adults" },
-          totalChildren: { $sum: "$children" },
-        },
+    },
+    {
+      $group: {
+        _id: null,
+        totalAdults: { $sum: "$adults" },
+        totalChildren: { $sum: "$children" },
       },
-      {
-        $project: {
-          _id: 0,
-          totalTravellers: { $add: ["$totalAdults", "$totalChildren"] },
-        },
+    },
+    {
+      $project: {
+        _id: 0,
+        totalTravellers: { $add: ["$totalAdults", "$totalChildren"] },
       },
-    ];
+    },
+  ];
 
-    const result = await aggregate("bookings", pipeline);
-    const booked = result?.[0]?.totalTravellers || 0;
-    const remaining = MAX_TRAVELLERS - booked;
+  const result = await aggregate("bookings", pipeline);
+  const booked = result?.[0]?.totalTravellers || 0;
+  const remaining = MAX_TRAVELLERS - booked;
 
-    return remaining > 0 ? remaining : 0;
-  }
+  return remaining > 0 ? remaining : 0;
+}
+
+
 }
 
 module.exports = new BookingsService();

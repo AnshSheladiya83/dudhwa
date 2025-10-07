@@ -4,22 +4,22 @@ const thingsToDo = [
   { 
     heading: "Wild Animals", 
     description: "Dudhwa’s Big Five: Tigers, Rhinos, Elephants, Leopards, and Swamp Deer with other unique species.", 
-    icon: "../../public/assets/image/things-icon1.png" 
+    icon: "/assets/image/things-icon1.png" 
   },
   { 
     heading: "Birds Watching", 
     description: "Dudhwa hosts over 400 bird species, including the rare Bengal Florican and vibrant parakeets.", 
-    icon: "../../public/assets/image/things-icon2.png" 
+    icon: "/assets/image/things-icon2.png" 
   },
   { 
     heading: "Gypsy Safari", 
     description: "Explore Dudhwa’s landscapes and wildlife up close on an exciting Gypsy Safari.", 
-    icon: "../../public/assets/image/things-icon3.png" 
+    icon: "/assets/image/things-icon3.png" 
   },
   { 
     heading: "Night Stay", 
     description: "Enjoy a group safari through Dudhwa’s wilderness, perfect for shared wildlife adventures.", 
-    icon: "../../public/assets/image/night.png" 
+    icon: "/assets/image/night.png" 
   },
 ];
 

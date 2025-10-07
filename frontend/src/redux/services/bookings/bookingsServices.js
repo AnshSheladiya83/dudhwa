@@ -70,3 +70,25 @@ export const bookingCreate = createAsyncThunk(
     }
   }
 );
+
+export const bookingGetAvailability = createAsyncThunk(
+  "booking/getAvailability",
+  async ({ token, safari_date, time_slot }, { rejectWithValue }) => {
+    try {
+      const response = await Axios.get("/api/bookings/availability", {
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+        params: { safari_date, time_slot },
+      });
+
+      if (response.data.success) {
+        return response.data;
+      } else {
+        toast.error(response.data.message ?? "Something went wrong");
+        return rejectWithValue(response.data.message ?? "Something went wrong");
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message ?? "Something went wrong");
+      return rejectWithValue(error?.response?.data?.message ?? "Opps! Something went wrong");
+    }
+  }
+);

@@ -19,7 +19,6 @@ router.get('/:id',authMiddleware, UsersController.getById);
 router.put(
   "/:id",
   authMiddleware,
-  
   UsersController.updateById
 );
 router.delete('/:id',authMiddleware, UsersController.deleteById);

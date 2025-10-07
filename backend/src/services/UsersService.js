@@ -12,22 +12,31 @@ const {
 } = require("../utils/aggregateHelpers/unwindStageHelper");
 const { default: mongoose } = require("mongoose");
 const MSG = require("../utils/MSG");
+const bcrypt = require('bcrypt');
 
 class UsersService {
   async create(data, userId) {
-    const users = new Users({
-      ...data,
-      created_at: new Date(),
-      created_by: userId,
-      updated_at: null,
-      updated_by: null,
-      is_deleted: false,
-      deleted_at: null,
-      deleted_by: null,
-    });
-    return await users.save();
+    try {
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(data.password, 10);
+  
+      const users = new Users({
+        ...data,
+        password: hashedPassword, // store hashed password
+        created_at: new Date(),
+        created_by: userId,
+        updated_at: null,
+        updated_by: null,
+        is_deleted: false,
+        deleted_at: null,
+        deleted_by: null,
+      });
+  
+      return await users.save();
+    } catch (error) {
+      throw error;
+    }
   }
-
   async getAll({ search, pageNumber, pageSize, sortField, sortDirection }) {
     let pipeline = [];
 

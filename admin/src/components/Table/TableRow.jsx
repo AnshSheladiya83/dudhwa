@@ -4,12 +4,16 @@ import React from 'react';
     import { buttonConfigs } from '../../data/buttonConfig';
     
     const formatDateString = (dateString) => {
-      const options = { hour: '2-digit', minute: '2-digit', hour12: true };
       const date = new Date(dateString);
       if (isNaN(date.getTime())) {
-        return dateString; 
+        return dateString; // Return as is if invalid
       }
-      return date.toLocaleString('en-US', options);
+    
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+    
+      return `${day}-${month}-${year}`; // Format: DD-MM-YYYY
     };
     
     const formatDateTimeFields = (fieldName, fieldValue) => {
@@ -66,4 +70,3 @@ import React from 'react';
     };
     
     export default TableRow;
-    

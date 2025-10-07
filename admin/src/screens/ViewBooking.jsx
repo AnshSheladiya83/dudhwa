@@ -57,7 +57,6 @@ const ViewBooking = () => {
             { label: "Amount", value: details.amount },
             { label: "Tax", value: details.tax },
             { label: "Total Payable", value: details.totalPayable },
-            { label: "Payment Status", value: details.payment_status },
           ].map((item, idx) => (
             <div key={idx} className="flex justify-between border-b pb-2 text-sm">
               <span className="font-semibold text-gray-700">{item.label}</span>
@@ -75,8 +74,7 @@ const ViewBooking = () => {
                 <div key={idx} className="border rounded-lg p-3 shadow-sm">
                   <p><span className="font-semibold">Name:</span> {p.name}</p>
                   <p><span className="font-semibold">Gender:</span> {p.gender}</p>
-                  <p><span className="font-semibold">ID Type:</span> {p.idType}</p>
-                  <p><span className="font-semibold">ID Number:</span> {p.idNumber}</p>
+                  <p><span className="font-semibold">Nationality:</span> {p.nationality}</p>
                   <p><span className="font-semibold">Age:</span> {p.age}</p>
                   <p><span className="font-semibold">Type:</span> {p.type}</p>
                 </div>

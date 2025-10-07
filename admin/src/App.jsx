@@ -16,6 +16,8 @@ import ViewBooking from "./screens/ViewBooking";
 import ContactUsPage from "./screens/ContactUsList";
 import ViewContact from "./screens/ViewContactUs";
 import Users from "./screens/Users";
+import OffDates from "./screens/OffDates";
+import CreateUserScreen from "./screens/CreateUser";
   
   const App = () => {
     return (
@@ -63,6 +65,8 @@ import Users from "./screens/Users";
  <Route path="/contactus" element={<PrivateRoute roles={["admin"]}><ContactUsPage /></PrivateRoute>} />
   <Route path="/contactus/view/:id" element={<PrivateRoute roles={["admin"]}><ViewContact /></PrivateRoute>} />
   <Route path="/users" element={<PrivateRoute roles={["admin"]}><Users /></PrivateRoute>} />
+  <Route path="/create-user" element={<PrivateRoute roles={["admin"]}><CreateUserScreen /></PrivateRoute>} />
+  <Route path="/off-dates" element={<PrivateRoute roles={["admin"]}><OffDates /></PrivateRoute>} />
           </Routes>
         </div>
       </div>

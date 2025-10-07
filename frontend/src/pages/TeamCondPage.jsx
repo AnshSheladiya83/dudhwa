@@ -33,7 +33,7 @@ const DudhwaTigerReservePage = () => {
           <div className="container">
             <h2 className="section-title-large">Terms and Conditions</h2>
             <p className="overview-text">
-              <strong>Effective Date:</strong> 01 October 2025
+              <strong>Effective Date:</strong> 
             </p>
             <p className="overview-text">
               Welcome to the official website of{" "}

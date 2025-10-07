@@ -16,6 +16,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import BookSafari from "./pages/BookSafari.jsx";
 import MyProfilePage from "./pages/MyProfile.jsx";
+import CsrDonationsPage from "./pages/CsrDonationsPage.jsx";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
 
           <Route path="/terms-and-conditions" element={<TeamCondPage />} />
           <Route path="/privacy-policy" element={<PrivacypolicyPage />} />
+		  <Route path="/csr-donations" element={<CsrDonationsPage />} />
     <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

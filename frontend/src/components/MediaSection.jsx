@@ -3,21 +3,21 @@ import React from 'react';
 const mediaData = [
   { 
     name: "Facebook", 
-    image: "../../public/assets/image/Rectangle 77.jpg", 
+    image: "/assets/image/Rectangle 77.jpg", 
     colorClass: "facebook", // Simplified to name only
     iconClass: "fa-brands fa-facebook-f",
     isVideo: false
   },
   { 
     name: "Instagram", 
-    image: "../../public/assets/image/Rectangle 77-1.jpg", 
+    image: "/assets/image/Rectangle 77-1.jpg", 
     colorClass: "instagram", // Simplified to name only
     iconClass: "fa-brands fa-instagram",
     isVideo: false
   },
   { 
     name: "Youtube", 
-    image: "../../public/assets/image/Rectangle 77-2.jpg", 
+    image: "/assets/image/Rectangle 77-2.jpg", 
     colorClass: "youtube", // Simplified to name only
     iconClass: "fa-brands fa-youtube",
     isVideo: true 

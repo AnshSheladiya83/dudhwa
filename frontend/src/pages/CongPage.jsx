@@ -107,9 +107,8 @@ const BookingConfirmationSuccess = () => {
  **Booking Confirmed**
   </div>
   <div className='order-name'>
-      <h5>  Oder No: 9874563210</h5>
-      <h5>  Date: 10-03-2025</h5>
-
+      {/* <h5>  Oder No: 9874563210</h5> */}
+<h5>Date: {new Date().toLocaleDateString("en-GB")}</h5>
   </div>
   <div style={subTextStyle}>
  Vehicle details will be shared 1 day before safari.
