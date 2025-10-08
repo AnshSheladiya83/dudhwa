@@ -12,20 +12,50 @@ const MSG = require("../utils/MSG");
 
 class BookingsService {
   // ✅ Create Booking
-  async createBooking(data, userId) {
-    const booking = new Bookings({
-      ...data,
-      user_id: userId,
-      created_at: new Date(),
-      created_by: userId,
-      updated_at: null,
-      updated_by: null,
-      is_deleted: false,
-      deleted_at: null,
-      deleted_by: null,
-    });
-    return await booking.save();
-  }
+async createBooking(data, userId) {
+  const totalAdults = (data.indian_count?.adults || 0) + (data.foreigner_count?.adults || 0);
+  const totalChildren =
+    (data.indian_count?.children518 || 0) +
+    (data.foreigner_count?.children518 || 0) +
+    (data.indian_count?.childrenBelow5 || 0) +
+    (data.foreigner_count?.childrenBelow5 || 0);
+
+  const booking = new Bookings({
+    user: userId || null,
+    safari_zone: data.safari_zone,
+    safari_date: data.safari_date,
+    time_slot: data.time_slot,
+    bookedCar: data.bookedCar,
+
+    adults: totalAdults,
+    children: totalChildren,
+
+    passengers: data.passengers?.map((p) => ({
+      name: p.name,
+      gender: p.gender,
+      nationality: p.nationality === "Indian" ? "Indian" : "Foreigner",
+      age: Number(p.age),
+      type: p.type,
+    })),
+
+    amount: data.totalPayable,
+    tax: data.tax,
+    totalPayable: data.totalPayable,
+    razorpay_payment_id: data.razorpay_payment_id || null,
+    razorpay_order_id: data.razorpay_order_id || null,
+    payment_status: "success",
+
+    created_at: new Date(),
+    created_by: userId || null,
+    updated_at: null,
+    updated_by: null,
+    is_deleted: false,
+    deleted_at: null,
+    deleted_by: null,
+  });
+
+  return await booking.save();
+}
 
   // ✅ Get All Bookings (Admin/User)
   async getBookings({ search, pageNumber=1, pageSize=1000, sortField, sortDirection, userId, isAdmin }) {
@@ -83,7 +113,7 @@ class BookingsService {
   return bookings[0] || null;
 }
 async getRemainingTravellerCount(safari_date, time_slot) {
-  const MAX_TRAVELLERS = 40;
+  const MAX_TRAVELLERS = 20;
 
   // Normalize to UTC start/end of day
   const date = new Date(safari_date);

@@ -38,9 +38,9 @@ const BookingSchema = new mongoose.Schema(
     passengers: [PassengerSchema],
 
     // Payment info
-    amount: { type: Number, required: true },
-    tax: { type: Number, required: true },
-    totalPayable: { type: Number, required: true },
+    amount: { type: Number},
+    tax: { type: Number },
+    totalPayable: { type: Number },
     razorpay_payment_id: { type: String },
     razorpay_order_id: { type: String },
     payment_status: {
